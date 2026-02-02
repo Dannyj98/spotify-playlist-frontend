@@ -1,8 +1,12 @@
 <template>
-  <div class="dropdown-card">
-    <img class="artist-image" :src="props.images[0].url" width="50" height="50" />
-    <span class="artist-name">{{ props.name }}</span>
-    <!-- Add more artist details here if needed -->
+  <div class="flex items-center gap-3 px-4 py-3 border-b border-neutral-200 last:border-b-0 cursor-pointer hover:bg-neutral-50 transition-colors duration-150">
+    <div v-if="props.images && props.images.length > 0 && props.images[0]" class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+      <img :src="props.images[0].url" :alt="props.name" class="w-full h-full object-cover" />
+    </div>
+    <div v-else class="w-12 h-12 rounded-full bg-neutral-200 flex items-center justify-center flex-shrink-0">
+      <span class="text-neutral-600 font-semibold text-lg">{{ getInitials(props.name) }}</span>
+    </div>
+    <span class="text-neutral-900 font-medium">{{ props.name }}</span>
   </div>
 </template>
 
@@ -10,19 +14,13 @@
 import type { ArtistItem } from '@/types/spotify'
 
 const props = defineProps<ArtistItem>()
-</script>
-<style scoped>
-.dropdown-card {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 8px;
-  border-bottom: 1px solid #eee;
-  cursor: pointer;
-}
 
-.artist-image {
-  border-radius: 50%;
-  margin-right: 12px;
+const getInitials = (name: string): string => {
+  return name
+    .split(' ')
+    .map(word => word[0])
+    .slice(0, 2)
+    .join('')
+    .toUpperCase()
 }
-</style>
+</script>

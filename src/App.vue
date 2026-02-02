@@ -1,6 +1,11 @@
 <template>
-  <RouterView />
+  <div class="min-h-screen bg-neutral-50 flex items-center justify-center p-4">
+    <div class="w-full max-w-2xl">
+      <RouterView />
+    </div>
+  </div>
 </template>
+
 <script setup lang="ts">
 import { onMounted } from 'vue'
 
@@ -12,5 +17,3 @@ onMounted(() => {
   authStore.startUserSession()
 })
 </script>
-
-<style scoped></style>

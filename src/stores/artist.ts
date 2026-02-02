@@ -4,6 +4,7 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useArtistStore = defineStore('artist', () => {
+  const selectedArtists = ref<ArtistItem[]>([])
   const searchResults = ref<ArtistItem[]>([])
   const isLoading = ref<boolean>(false)
   const isSuccess = ref<boolean>(false)
@@ -29,7 +30,7 @@ export const useArtistStore = defineStore('artist', () => {
 
     const response = await fetch(`http://localhost:8080/api/artist/search?${params.toString()}`, {
       headers: {
-        'Session-Id': getCookie('sessionId') as string,
+        'Session-Id': getCookie('sessionId') ?? '',
       },
     })
 
@@ -48,12 +49,23 @@ export const useArtistStore = defineStore('artist', () => {
     isSuccess.value = true
   }
 
+  const addSelectedArtist = (artist: ArtistItem) => {
+    // Implementation for adding selected artist to a list
+    selectedArtists.value.push(artist)
+  }
+  const removeSelectedArtist = (artistId: string) => {
+    selectedArtists.value = selectedArtists.value.filter((artist) => artist.id !== artistId)
+  }
+
   return {
+    addSelectedArtist,
+    selectedArtists,
     searchResults,
     isLoading,
     isSuccess,
     error,
     searchByName,
     clearSearchResults,
+    removeSelectedArtist,
   }
 })
