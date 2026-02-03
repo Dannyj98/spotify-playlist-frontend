@@ -4,9 +4,9 @@
       <img :src="props.images[0].url" :alt="props.name" class="w-full h-full object-cover" />
     </div>
     <div v-else class="w-12 h-12 rounded-full bg-neutral-200 flex items-center justify-center flex-shrink-0">
-      <span class="text-neutral-600 font-semibold text-lg">{{ getInitials(props.name) }}</span>
+      <span class="text-neutral-200 font-semibold text-lg">{{ getInitials(props.name) }}</span>
     </div>
-    <span class="text-neutral-900 font-medium">{{ props.name }}</span>
+    <span class="text-white font-medium">{{ props.name }}</span>
   </div>
 </template>
 

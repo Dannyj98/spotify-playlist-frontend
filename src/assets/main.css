@@ -27,4 +27,9 @@
 
   --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.04);
   --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.08);
+
+  --color-gradient-1: #facc15;
+  --color-gradient-2: #f97316;
+  --color-gradient-3: #ea580c;
+  --color-gradient-4: #dc2626;
 }

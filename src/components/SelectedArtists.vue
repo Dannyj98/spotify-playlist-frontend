@@ -1,6 +1,6 @@
 <template>
   <div class="space-y-4">
-    <h2 class="text-lg font-semibold text-neutral-900">Selected Artists</h2>
+    <h2 class="text-lg font-semibold text-white">Selected Artists</h2>
     <div v-if="selectedArtists.length === 0" class="text-center py-8 text-neutral-500">
       No artists selected yet. Search and select artists to begin.
     </div>

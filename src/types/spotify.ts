@@ -33,3 +33,11 @@ interface Image {
   url: string
   width: number | null
 }
+
+export interface TrackItem {
+  id: string
+  name: string
+  artist: string
+  album: string
+  albumImageUrl?: string
+}
